@@ -1,22 +1,30 @@
 # AWI-TTY for Agents: Quick Start and Patterns
 
-This guide helps agent developers use the AWI-TTY CLI façade (awi-tty) to control Carbonyl without writing JSON.
+```
+    _       ____   _____   _   _   _____    __        __  _____   ____    
+   / \     / ___| | ____| | \ | | |_   _|   \ \      / / | ____| | __ )   
+  / _ \   | |  _  |  _|   |  \| |   | |      \ \ /\ / /  |  _|   |  _ \   
+ / ___ \  | |_| | | |___  | |\  |   | |       \ V  V /   | |___  | |_| |  
+/_/   \_\  \____| |_____| |_| \_|   |_|        \_/\_/    |_____| |____/   
+```
+
+AWI-TTY is the agent-facing command-line façade for AWI (Agent Web Interface). It bridges low-level JSON-RPC into simple shell commands so agents can navigate, interact, and read terminal-rendered web output without crafting JSON.
 
 1. Quick Start
-- Start Carbonyl in Agent Mode (example):
+- Start AWI in Agent Mode (example):
 ```bash
 ./carbonyl-runtime/carbonyl --agent-socket=/tmp/carbonyl.sock https://news.ycombinator.com/
 ```
-- Point awi-tty to the socket (optional if default path works):
+- Point awi-tty to the socket (optional; auto-discovery applies):
 ```bash
 export AWI_SOCK=/tmp/carbonyl.sock
 ```
-- Take a snapshot (text):
+- Snapshot text:
 ```bash
 awi-tty snapshot --format text --plain | sed -n '1,40p'
 ```
 
-2. Common Commands (MVP)
+2. Command Surface (MVP)
 - Navigate:
 ```bash
 awi-tty navigate "https://news.ycombinator.com/"
@@ -30,7 +38,7 @@ awi-tty send-key Enter
 ```bash
 awi-tty scroll 5
 ```
-- Get title / URL / navigation state:
+- Read state:
 ```bash
 awi-tty get-title
 awi-tty get-url
@@ -41,12 +49,17 @@ awi-tty get-nav-state --json | jq .
 awi-tty set-viewport 140 45
 ```
 
-3. Usage Patterns
+3. Concepts
+- Agent Mode: AWI runs with --agent-socket, disabling TTY takeover and exposing a Unix Socket JSON-RPC.
+- Socket discovery order: $AWI_SOCK → $XDG_RUNTIME_DIR/carbonyl/agent.sock → /tmp/carbonyl-$UID/agent.sock
+- Output modes: --plain (text only) for snapshots, --json for structured responses; semantic exit codes for robust automation.
+
+4. Usage Patterns
 - Pattern 1: Navigation + Extraction
 ```bash
 awi-tty navigate "https://news.ycombinator.com/"
 content=$(awi-tty snapshot --plain | head -20)
-# process $content with your LLM or shell tools
+# feed $content to your LLM or parse via grep/sed/awk
 ```
 - Pattern 2: Interactive Navigation
 ```bash
@@ -63,7 +76,7 @@ if awi-tty get-nav-state --json | jq -e '.can_go_back == true' >/dev/null; then
 fi
 ```
 
-4. Exit Codes (sysexits-inspired)
+5. Exit Codes (sysexits-inspired)
 - 0 Success
 - 64 Usage (invalid flags/arguments)
 - 65 Data error (invalid URL, malformed input)
@@ -72,11 +85,6 @@ fi
 - 73 Rate-limited (throttling)
 - 74 IO error
 - 77 No permission (permissions or ownership issues)
-
-5. Socket Discovery
-- $AWI_SOCK
-- $XDG_RUNTIME_DIR/carbonyl/agent.sock
-- /tmp/carbonyl-$UID/agent.sock
 
 6. Tips
 - Prefer --plain for snapshot text if you intend to pipe to grep/sed/awk.
@@ -87,7 +95,7 @@ awi-tty snapshot --plain | grep -q "Hacker News"
 ```
 
 7. Troubleshooting
-- Socket not found: ensure Carbonyl is running with --agent-socket and that your user owns the socket path.
+- Socket not found: ensure AWI is running with --agent-socket and that your user owns the socket path.
 - Permission denied: verify parent directory perms (0700) and umask (0077) are applied.
 - Rate-limited: slow down snapshot frequency, or insert waits between calls.
 
