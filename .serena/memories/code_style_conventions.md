@@ -1,4 +1,4 @@
-# Carbonyl Code Style and Conventions
+# AWI Code Style and Conventions
 
 ## Rust Code Style
 - **Edition**: Rust 2021
@@ -12,7 +12,7 @@
 ## C++ Code Style (Chromium Integration)
 - Follows Chromium coding standards
 - Bridge code in `src/browser/` directory
-- Uses Mojo IPC for communication (carbonyl.mojom)
+- Uses Mojo IPC for communication (awi.mojom)
 - Headers use `.h` extension, implementations use `.cc`
 
 ## Build Configuration

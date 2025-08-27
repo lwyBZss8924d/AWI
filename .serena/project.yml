@@ -3,20 +3,20 @@
 #  * For JavaScript, use typescript
 # Special requirements:
 #  * csharp: Requires the presence of a .sln file in the project folder.
-language: python
+language: rust
 
 # whether to use the project's gitignore file to ignore files
-# Added on 2025-04-07
+# Added on 2025-08-27
 ignore_all_files_in_gitignore: true
 # list of additional paths to ignore
 # same syntax as gitignore, so you can use * and **
 # Was previously called `ignored_dirs`, please update your config if you are using that.
-# Added (renamed) on 2025-04-07
+# Added (renamed) on 2025-08-27
 ignored_paths: []
 
 # whether the project is in read-only mode
 # If set to true, all editing tools will be disabled and attempts to use them will result in an error
-# Added on 2025-04-18
+# Added on 2025-08-27
 read_only: false
 
 
@@ -65,4 +65,4 @@ excluded_tools: []
 # (contrary to the memories, which are loaded on demand).
 initial_prompt: ""
 
-project_name: "carbonyl"
+project_name: "awi"

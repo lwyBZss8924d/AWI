@@ -1,4 +1,4 @@
-# Carbonyl Development Commands
+# AWI Development Commands
 
 ## Core (Rust Library) Development
 - `cargo build` - Build the Rust library in debug mode
@@ -9,24 +9,24 @@
 
 ### Initial Setup
 1. `./scripts/gclient.sh sync` - Fetch Chromium source code (requires ~100GB disk space)
-2. `./scripts/patches.sh apply` - Apply Carbonyl patches to Chromium
+2. `./scripts/patches.sh apply` - Apply AWI patches to Chromium
 
 ### Configuration
 - `./scripts/gn.sh args out/Default` - Configure build target
   - Use different target names for different configs (e.g., out/release, out/debug, out/arm64)
 
 ### Building
-- `./scripts/build.sh Default` - Build both libcarbonyl and Chromium runtime
+- `./scripts/build.sh Default` - Build both libawi and Chromium runtime
 - `./scripts/build.sh Default [cpu]` - Build for specific CPU architecture
 
 ### Running
-- `./scripts/run.sh Default [URL]` - Run Carbonyl with the specified build
+- `./scripts/run.sh Default [URL]` - Run AWI with the specified build
   - Example: `./scripts/run.sh Default https://wikipedia.org`
 
 ## Docker
 - `./scripts/docker-build.sh Default arm64` - Build arm64 Docker image
 - `./scripts/docker-build.sh Default amd64` - Build amd64 Docker image
-- `docker run --rm -ti fathyb/carbonyl https://youtube.com` - Run Carbonyl in Docker
+- `docker run --rm -ti fathyb/awi https://youtube.com` - Run AWI in Docker
 
 ## Release & Publishing
 - `./scripts/release.sh` - Create release build
@@ -38,6 +38,6 @@
 
 ## Quick Development Workflow
 For Rust-only changes (most common):
-1. `cargo build --release` - Build libcarbonyl
-2. Copy the built library to a release version of Carbonyl
+1. `cargo build --release` - Build libawi
+2. Copy the built library to a release version of AWI
 3. Test changes

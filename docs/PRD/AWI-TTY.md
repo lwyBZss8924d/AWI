@@ -1,4 +1,4 @@
-# [new-features] Agent Web Interface TTY (AWI-TTY) — Carbonyl Feature Proposal
+# [new-features] Agent Web Interface TTY (AWI-TTY) — AWI Feature Proposal (based on Carbonyl)
 
 Author: Agent Mode
 Date: 2025-08-27

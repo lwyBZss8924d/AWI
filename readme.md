@@ -10,10 +10,12 @@ O —— Cr —— O
     /  \
    O    O</pre>
       </td>
-      <td><h1>Carbonyl</h1></td>
+      <td><h1>AWI</h1></td>
     </tr>
   </tbody>
 </table>
+
+AWI (Agent Web Interface) — Use [AWI-TTY](docs/PRD/AWI-TTY.md) for Agent Computer Interface. Use [carbonyl](https://github.com/fathyb/carbonyl) as the runtime foundation.
 
 Carbonyl is a Chromium based browser built to run in a terminal. [Read the blog post](https://fathy.fr/carbonyl).
 

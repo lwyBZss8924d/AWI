@@ -1,6 +1,8 @@
 # WARP.md
 
-This file provides guidance to WARP (warp.dev) when working with code in this repository.
+This file provides guidance to WARP (warp.dev) when working with AWI (Agent Web Interface) — built on top of Carbonyl — in this repository.
+
+AWI (Agent Web Interface) — Use [AWI-TTY](docs/PRD/AWI-TTY.md) for Agent Computer Interface. Use [carbonyl](https://github.com/fathyb/carbonyl) as the runtime foundation.
 
 Carbonyl is a Chromium-based browser that runs entirely in a terminal. The project consists of a Rust core library (libcarbonyl) and a modified Chromium headless shell runtime that loads the library and renders directly to terminal cells.
 

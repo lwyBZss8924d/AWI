@@ -1,6 +1,9 @@
-# Carbonyl Project Overview
+# AWI Project Overview
 
-## What is Carbonyl?
+## What is AWI?
+
+AWI (Agent Web Interface) — Use [AWI-TTY](docs/PRD/AWI-TTY.md) for Agent Computer Interface. Use [carbonyl](https://github.com/fathyb/carbonyl) as the runtime foundation.
+
 Carbonyl is a Chromium-based browser built to run entirely in a terminal. It's a unique project that renders web content directly to the terminal without requiring a window server.
 
 ## Key Features
@@ -11,7 +14,7 @@ Carbonyl is a Chromium-based browser built to run entirely in a terminal. It's a
 - No window server required
 
 ## Technology Stack
-- **Core Library (libcarbonyl)**: Written in Rust
+- **Core Library (libawi)**: Written in Rust
   - Uses unicode-width, unicode-segmentation for terminal rendering
   - Compiled as a cdylib (C dynamic library)
 - **Runtime**: Modified Chromium headless shell (C++)
@@ -19,7 +22,7 @@ Carbonyl is a Chromium-based browser built to run entirely in a terminal. It's a
   - Integrates with the Rust core via FFI
 
 ## Project Structure
-- `src/` - Rust source code for libcarbonyl
+- `src/` - Rust source code for libawi
   - `browser/` - C++ bridge code and Chromium integration
   - `input/` - Terminal input handling (keyboard, mouse, TTY)
   - `output/` - Terminal rendering (cells, quantizer, renderer)
@@ -31,6 +34,6 @@ Carbonyl is a Chromium-based browser built to run entirely in a terminal. It's a
 - `build.rs` - Rust build configuration (links to Chromium sysroot on Linux)
 
 ## Build Outputs
-- `libcarbonyl.so` (Linux) / `libcarbonyl.dylib` (macOS) - Core Rust library
+- `libawi.so` (Linux) / `libawi.dylib` (macOS) - Core Rust library
 - `headless_shell` - Modified Chromium binary
 - Supporting files: `icudtl.dat`, `libEGL.so`, `libGLESv2.so`, `v8_context_snapshot.bin`

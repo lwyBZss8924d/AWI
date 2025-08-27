@@ -1,8 +1,8 @@
-# Task Completion Checklist for Carbonyl
+# Task Completion Checklist for AWI
 
-When completing a development task in Carbonyl, ensure the following:
+When completing a development task in AWI, ensure the following:
 
-## For Rust Code Changes (libcarbonyl)
+## For Rust Code Changes (libawi)
 1. Build the library in release mode: `cargo build --release`
 2. Ensure the library compiles without warnings
 3. If changing FFI interfaces, update corresponding C++ bridge code in `src/browser/`

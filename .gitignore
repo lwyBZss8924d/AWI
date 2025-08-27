@@ -4,7 +4,16 @@ node_modules/
 /.ccache
 /.git_cache
 /.vscode
-/build
+
+# Rust build outputs
+/build/
+target/
+
+# Scope .cargo tracking to config files only
+.cargo/*
+!.cargo/config
+!.cargo/config.toml
+
 /chromium/*
 !/chromium/.gclient
 !/chromium/depot_tools
