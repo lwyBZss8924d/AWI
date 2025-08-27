@@ -1,0 +1,34 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__serena__check_onboarding_performed",
+      "mcp__serena__onboarding",
+      "mcp__serena__list_dir",
+      "mcp__serena__find_file",
+      "mcp__serena__get_symbols_overview",
+      "mcp__serena__write_memory",
+      "mcp__jina-mcp__search_web",
+      "mcp__jina-mcp__read_url",
+      "Bash(npm root:*)",
+      "Bash(rustc --version)",
+      "Bash(cargo --version)",
+      "Bash(xcode-select:*)",
+      "Bash(unzip:*)",
+      "Bash(cargo build:*)",
+      "Bash(chmod:*)",
+      "Bash(./carbonyl-runtime/carbonyl:*)",
+      "Bash(otool:*)",
+      "Bash(./dev-verify.sh:*)",
+      "Bash(install_name_tool:*)",
+      "Bash(./dev-run.sh:*)",
+      "mcp__serena__read_memory",
+      "mcp__serena__find_symbol",
+      "mcp__serena__search_for_pattern",
+      "mcp__serena__think_about_collected_information"
+    ],
+    "additionalDirectories": [
+      "/Users/arthur/.volta/tools/image/node/20.19.0/lib/node_modules/carbonyl"
+    ]
+  },
+  "outputStyle": "Explanatory"
+}
