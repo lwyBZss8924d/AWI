@@ -18,4 +18,8 @@ target/
 !/chromium/.gclient
 !/chromium/depot_tools
 !/chromium/patches
+
+# Ignore downloaded runtime binaries
+/carbonyl-runtime/
+
 /packages/*/build
